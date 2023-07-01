@@ -1,0 +1,40 @@
+<div class="text-center">
+    <%= form_with(model: apartment) do |form| %>
+      <h1>New apartment</h1>
+      <% if apartment.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+          <ul>
+            <% apartment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title, class: "block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <div>
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_field :description, class: "block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+
+      <div>
+        <%= form.label :active_date, style: "display: block" %>
+        <%= form.datetime_field :active_date %>
+      </div>
+
+      <div>
+        <%= form.label :inactive_date, style: "display: block" %>
+        <%= form.datetime_field :inactive_date %>
+      </div>
+
+      <br>
+
+      <div>
+        <%= form.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+      </div>
+    <% end %>
