@@ -65,6 +65,6 @@ class ApartmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def apartment_params
-      params.require(:apartment).permit(:title, :description, :active_date, :inactive_date)
+      params.require(:apartment).permit(:title, :description, :active_date, :inactive_date, images: [])
     end
 end

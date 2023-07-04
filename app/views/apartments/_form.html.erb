@@ -1,51 +1,59 @@
 <div class="text-center">
-  <%= form_with(model: apartment) do |f| %>
+  <%= form_with(model: apartment) do |form| %>
     <div class="text-3xl text-gray-900 dark:text-white">
       <h1>New apartment</h1>
     </div>
     <br>
     <div>
       <% invalid = apartment.errors.include?(:title) %>
-      <%= f.label :title, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :title, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= form.label :title, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :title, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       <% if invalid %>
-      <p style= "color:red">
-        <%= apartment.errors.full_messages_for(:title).join(" ,") %>
+        <p style="color:red">
+          <%= apartment.errors.full_messages_for(:title).join(" ,") %>
         </p>
       <% end %>
     </div>
 
     <div>
       <% invalid = apartment.errors.include?(:description) %>
-      <%= f.label :description, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :description, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <%= form.label :description, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :description, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       <% if invalid %>
-      <p style= "color:red">
-        <%= apartment.errors.full_messages_for(:description).join(" ,") %>
+        <p style="color:red">
+          <%= apartment.errors.full_messages_for(:description).join(" ,") %>
         </p>
       <% end %>
     </div>
-
+  
+    <br>
+    <%= form.file_field :images, multiple:true, class: "text-sm text-gray-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600"%>      
+    <br>
     <br>
 
     <div>
       <% invalid = apartment.errors.include?(:active_date) %>
-      <%= f.label :active_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.datetime_field :active_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      <%= form.label :active_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.datetime_field :active_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       <% if invalid %>
-      <p style= "color:red">
-        <%= apartment.errors.full_messages_for(:active_date).join(" ,") %>
+        <p style="color:red">
+          <%= apartment.errors.full_messages_for(:active_date).join(" ,") %>
         </p>
       <% end %>
     </div>
 
     <div>
       <% invalid = apartment.errors.include?(:inactive_date) %>
-      <%= f.label :inactive_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.datetime_field :inactive_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      <%= form.label :inactive_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.datetime_field :inactive_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       <% if invalid %>
-      <p style= "color:red">
-        <%= apartment.errors.full_messages_for(:inactive_date).join(" ,") %>
+        <p style="color:red">
+          <%= apartment.errors.full_messages_for(:inactive_date).join(" ,") %>
         </p>
       <% end %>
     </div>
@@ -53,6 +61,7 @@
     <br>
 
     <div>
-      <%= f.submit class: "text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none dark:focus:ring-orange-800" %>
+      <%= form.submit class: "text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none dark:focus:ring-orange-800" %>
     </div>
   <% end %>
+</div>
