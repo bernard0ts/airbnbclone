@@ -1,6 +1,7 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: %i[ show edit update destroy ]
 
+
   # GET /apartments or /apartments.json
   def index
     @apartments = Apartment.all

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  devise_scope :admin do
+    get '/admins', to: 'devise/registrations#new'
+    get '/admins/password', to: 'devise/passwords#new'
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+  end
+
   devise_for :admins
+
   resources :apartments
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
