@@ -1,0 +1,27 @@
+.apartment-container{
+    margin-top: 4px;
+    position: relative;
+}
+
+.title-text{
+    font-family: "Arial", sans-serif;
+}
+
+.otherfields-text{
+    opacity: 0.8;
+}
+
+.apartment-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index:4;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.apartment-link:hover{
+    opacity: 0.1;
+}
