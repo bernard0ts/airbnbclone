@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  scope :module => "admin" do
+    resources :apartments, controller: '/admins/apartments'
+  end
+
   devise_scope :admin do
     get '/admins', to: 'devise/registrations#new'
     get '/admins/password', to: 'devise/passwords#new'
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
 
-  resources :apartments
+  resources :apartments, only: %i[index show], controller: 'apartments'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
