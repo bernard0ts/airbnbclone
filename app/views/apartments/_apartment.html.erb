@@ -1,20 +1,20 @@
-<div id="<%= dom_id apartment %>" class="post-container">
-  <p>
-    <%= apartment.title %>
+<div id="<%= dom_id apartment %>" class="apartment-container">
+  <% apartment.images.each do |image| %>
+    <%= image_tag(image, style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") %>
+  <% end %>
+  <p class="title-text">
+    <strong><%= apartment.title %></strong>
   </p>
-
-  <p>
+  <p class=otherfields-text>
     <%= apartment.description %>
   </p>
-
-  <p>
+  <p class=otherfields-text>
     <%= apartment.active_date %>
   </p>
-
-  <p>
+  <p class=otherfields-text>
     <%= apartment.inactive_date %>
   </p>
   <p>
-  <%= link_to "Show this post" %>
+    <%= link_to "", apartment, class: "apartment-link" %>
   </p>
 </div>
