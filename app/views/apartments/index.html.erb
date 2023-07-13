@@ -1,14 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Apartments</h1>
-
-<div id="apartments">
+<%= stylesheet_link_tag("apartment")%>
+<p class="text-green-500"><%= notice %></p>
+<div id="apartments" class="flex space-x-8">
   <% @apartments.each do |apartment| %>
     <%= render apartment %>
-    <p>
-      <%= link_to "Show this apartment", apartment %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New apartment", new_apartment_path %>
