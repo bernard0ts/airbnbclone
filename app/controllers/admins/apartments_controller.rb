@@ -8,7 +8,9 @@
     end
 
     # GET /apartments/1 or /apartments/1.json
-    def show; end
+    def show
+      @apartment = Apartment.find(params[:id])
+    end
 
     # GET /apartments/new
     def new

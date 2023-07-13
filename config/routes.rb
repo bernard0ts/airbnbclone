@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admins do
-    resources :apartments
+    resources :apartments, controller: '/admins/apartments'
   end
 
   devise_scope :admin do
