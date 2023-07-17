@@ -1,10 +1,10 @@
 <div style="text-align: center;">
   <p style="color: green;"><%= notice %></p>
 
-  <%= render @apartment %>
+  <%= render 'apartment', apartment: @apartment %>
 
   <div>
-    <%= link_to "Edit this apartment", edit_apartment_path(@apartment) %> |
+    <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment) %> |
     <%= link_to "Back to apartments", apartments_path %>
 
     <%= button_to "Destroy this apartment", @apartment, method: :delete %>

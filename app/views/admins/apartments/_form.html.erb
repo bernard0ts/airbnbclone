@@ -3,7 +3,7 @@
     <h1>New apartment</h1>
   </div>
   <br>
-  <%= form_with(model: apartment) do |form| %>
+  <%= form_with(model: apartment, url: admins_apartments_path) do |form| %>
     <div>
       <% invalid = apartment.errors.include?(:title) %>
       <%= form.label :title, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
