@@ -38,16 +38,16 @@ class Admins::ApartmentsController < ApplicationController
   # PATCH/PUT /apartments/1 or /apartments/1.json
   def update
     respond_to do |format|
-      if @apartment.save
-        format.html { redirect_to apartment_path(@apartment), notice: "Apartment was successfully created." }
-        format.json { render :show, status: :created, location: @apartment }
+      if @apartment.update(apartment_params)
+        format.html { redirect_to apartment_path(@apartment), notice: "Apartment was successfully updated." }
+        format.json { render :show, status: :ok, location: @apartment }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end
     end
   end
-  
+
   # DELETE /apartments/1 or /apartments/1.json
   def destroy
     @apartment.destroy
@@ -66,6 +66,6 @@ class Admins::ApartmentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def apartment_params
-    params.require(:apartment).permit(:title, :description, :active_date, :inactive_date, images: [])
+    params.require(:apartment).permit(:title, :description, :active_date, :inactive_date, :admin_id, images: [])
   end
 end

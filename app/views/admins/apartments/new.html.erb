@@ -1,1 +1,3 @@
-<%= render "form", apartment: @apartment %>
+<%= form_with(model: @apartment, url: admins_apartments_path) do |form| %>
+  <%= render "form", apartment: @apartment, form: form %>
+<% end %>

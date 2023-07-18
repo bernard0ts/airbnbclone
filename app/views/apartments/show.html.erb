@@ -4,9 +4,10 @@
   <%= render 'apartment', apartment: @apartment %>
 
   <div>
-    <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment) %> |
-    <%= link_to "Back to apartments", apartments_path %>
-
-    <%= button_to "Destroy this apartment", @apartment, method: :delete %>
+  <% if admin_signed_in? %>
+    <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+    <%= link_to "Back to apartments", apartments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+    <%= button_to "Destroy this apartment", admins_apartment_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" %>
+  <% end %>
   </div>
 </div>
