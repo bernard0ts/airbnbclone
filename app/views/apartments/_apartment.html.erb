@@ -1,20 +1,19 @@
-<div id="<%= apartment.id %>" class="apartment-container">
+<div class="apartment-container <%= @centered ? 'centered' : '' %>">
+  <% if @show_view %>
+    <p class="title-text"><strong><%= apartment.title %></strong></p>
+    <p class="otherfields-text"><%= apartment.description %></p>
+  <% end %>
+
   <% apartment.images.each do |image| %>
     <%= image_tag(image, style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") %>
   <% end %>
-  <p class="title-text">
-    <strong><%= apartment.title %></strong>
-  </p>
-  <p class="otherfields-text">
-    <%= apartment.description %>
-  </p>
-  <p class="otherfields-text">
-    <%= apartment.active_date %>
-  </p>
-  <p class="otherfields-text">
-    <%= apartment.inactive_date %>
-  </p>
-  <p>
-    <%= link_to "", apartment, class: "apartment-link" %>
-  </p>
+
+  <% unless @show_view %>
+    <p class="title-text"><strong><%= apartment.title %></strong></p>
+    <p class="otherfields-text"><%= apartment.description %></p>
+  <% end %>
+
+  <p class="otherfields-text"><%= apartment.active_date %></p>
+  <p class="otherfields-text"><%= apartment.inactive_date %></p>
+  <p><%= link_to "", apartment, class: "apartment-link" %></p>
 </div>

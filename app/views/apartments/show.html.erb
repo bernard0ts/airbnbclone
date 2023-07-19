@@ -1,13 +1,18 @@
-<div style="text-align: center;">
+<% @centered = true %>
+<%= stylesheet_link_tag "apartment" %>
+
+<div>
   <p style="color: green;"><%= notice %></p>
 
+  <% @show_view = true %>
   <%= render 'apartment', apartment: @apartment %>
+  <% @show_view = false %>
 
-  <div>
   <% if admin_signed_in? %>
-    <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
-    <%= link_to "Back to apartments", apartments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
-    <%= button_to "Destroy this apartment", admins_apartment_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" %>
+    <div>
+      <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+      <%= link_to "Back to apartments", apartments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" %>
+      <%= button_to "Destroy this apartment", admins_apartment_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" %>
+    </div>
   <% end %>
-  </div>
 </div>
