@@ -1,7 +1,8 @@
 <div class="apartment-container <%= @centered ? 'centered' : '' %>">
   <% if @show_view %>
+    <p class="title-text"><strong>Hosted by: <%= apartment.admin.name %></strong></p>
     <p class="title-text"><strong><%= apartment.title %></strong></p>
-    <p class="otherfields-text"><%= apartment.description %></p>
+    <p class="otherfields-text"><strong><%= apartment.description %></strong></p>
   <% end %>
 
   <% apartment.images.each do |image| %>
