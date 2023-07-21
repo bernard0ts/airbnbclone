@@ -3,11 +3,12 @@
     <p class="title-text"><strong>Hosted by: <%= apartment.admin.name %></strong></p>
     <p class="title-text"><strong><%= apartment.title %></strong></p>
     <p class="otherfields-text"><strong><%= apartment.description %></strong></p>
+    <% apartment.images.each do |image| %>
+      <%= image_tag(image, style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") %>
+    <% end %>
   <% end %>
-
-  <% apartment.images.each do |image| %>
-    <%= image_tag(image, style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") %>
-  <% end %>
+      
+  <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") if apartment.cover.attached? %>
 
   <% unless @show_view %>
     <p class="title-text"><strong><%= apartment.title %></strong></p>

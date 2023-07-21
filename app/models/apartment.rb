@@ -1,5 +1,6 @@
 class Apartment < ApplicationRecord
   validates :title, :description, :images, :active_date, :inactive_date, presence: true
+  has_one_attached :cover
   has_many_attached :images
 
   belongs_to :admin

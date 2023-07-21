@@ -4,7 +4,7 @@ class Admins::ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @apartments = Apartment.all
+    @apartments = Apartment.all.order(created_at: :desc)
   end
 
   # GET /apartments/1 or /apartments/1.json
@@ -66,6 +66,6 @@ class Admins::ApartmentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def apartment_params
-    params.require(:apartment).permit(:title, :description, :active_date, :inactive_date, :admin_id, images: [])
+    params.require(:apartment).permit(:title, :description, :active_date, :inactive_date, :admin_id, :cover, images: [])
   end
 end
