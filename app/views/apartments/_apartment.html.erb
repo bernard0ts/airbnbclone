@@ -1,21 +1,19 @@
 <div class="apartment-container <%= @centered ? 'centered' : '' %>">
-  <% if @show_view %>
-    <p class="title-text"><strong>Hosted by: <%= apartment.admin.name %></strong></p>
-    <p class="title-text"><strong><%= apartment.title %></strong></p>
-    <p class="otherfields-text"><strong><%= apartment.description %></strong></p>
-    <% apartment.images.each do |image| %>
-      <%= image_tag(image, style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") %>
+  <p class="title-text"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
+  <p class="title-text"><strong><%= apartment.title %></strong></p>
+  <p class="otherfields-text"><strong><%= apartment.description %></strong></p>
+  
+<div style="display: flex; justify-content: center; align-items: flex-start;">
+  <div style="flex: 1; margin-right: 5px;">
+    <% if apartment.cover.attached? %>
+      <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 800px; height: 420px; border-radius: 10px;") %>
     <% end %>
-  <% end %>
-      
-  <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") if apartment.cover.attached? %>
-
-  <% unless @show_view %>
-    <p class="title-text"><strong><%= apartment.title %></strong></p>
-    <p class="otherfields-text"><%= apartment.description %></p>
-  <% end %>
-
-  <p class="otherfields-text"><%= apartment.active_date %></p>
-  <p class="otherfields-text"><%= apartment.inactive_date %></p>
-  <p><%= link_to "", apartment, class: "apartment-link" %></p>
+  </div>
+  <div class= "grid grid-rows-2 grid-flow-col" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+    <% apartment.images.each do |image| %>
+      <%= image_tag(image, style: "object-fit: cover; width: 400px; height: 210px; border-radius: 10px; margin-bottom: 5px;") %>
+    <% end %>
+  </div>
 </div>
+
+

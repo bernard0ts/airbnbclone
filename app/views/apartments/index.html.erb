@@ -2,6 +2,6 @@
 <p class="text-green-500"><%= notice %></p>
 <div id="apartments" class="grid grid-cols-6 gap-6 justify-items-center">
   <% @apartments.each do |apartment| %>
-    <%= render apartment %>
+    <%= render "index", apartment: apartment %>
   <% end %>
 </div>
