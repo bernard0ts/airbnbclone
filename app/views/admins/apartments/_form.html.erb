@@ -65,7 +65,7 @@
   <div>
     <% invalid = apartment.errors.include?(:active_date) %>
     <%= form.label :active_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.datetime_field :active_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <%= form.datetime_field :active_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
     <% if invalid %>
     <p style="color:red">
       <%= apartment.errors.full_messages_for(:active_date).join(" ,") %>
@@ -76,7 +76,7 @@
   <div>
     <% invalid = apartment.errors.include?(:inactive_date) %>
     <%= form.label :inactive_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.datetime_field :inactive_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <%= form.datetime_field :inactive_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
     <% if invalid %>
     <p style="color:red">
       <%= apartment.errors.full_messages_for(:inactive_date).join(" ,") %>
@@ -87,6 +87,6 @@
   <br>
 
   <div>
-    <%= form.submit class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-800" %>
+    <%= form.submit class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-800" %>
   </div>
 </div>

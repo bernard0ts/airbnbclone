@@ -1,7 +1,6 @@
-<div class="apartment-container <%= @centered ? 'centered' : '' %>">
-  <p class="title-text"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
-  <p class="title-text"><strong><%= apartment.title %></strong></p>
-  <p class="otherfields-text"><strong><%= apartment.description %></strong></p>
+  <div class="apartment-container <%= @centered ? 'centered' : '' %>">
+  <p class="title-text" style= "margin-right: 1700px;"><strong><%= apartment.title %></strong></p>
+  <p class="title-text" style= "margin-right: 1600px;"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
   
 <div style="display: flex; justify-content: center; align-items: flex-start;">
   <div style="flex: 1; margin-right: 5px;">
@@ -9,11 +8,10 @@
       <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 800px; height: 420px; border-radius: 10px;") %>
     <% end %>
   </div>
-  <div class= "grid grid-rows-2 grid-flow-col" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+  <div class= "grid grid-rows-2 grid-cols-2 grid-flow-col" style="flex-direction: column; justify-center; justify-content: flex-start;">
     <% apartment.images.each do |image| %>
       <%= image_tag(image, style: "object-fit: cover; width: 400px; height: 210px; border-radius: 10px; margin-bottom: 5px;") %>
     <% end %>
   </div>
 </div>
-
-
+<p class="otherfields-text" style= "margin-right: 1700px;">Description: <strong><%= apartment.description %></strong></p>
