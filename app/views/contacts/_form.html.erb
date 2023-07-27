@@ -1,41 +1,43 @@
-<div class="text-center">
-  <div class="text-3xl text-gray-900 dark:text-white">
-    <h1>New contact</h1>
-  </div>
+<div class="mb-16"></div>  
+  <div class="text-center">
+    <div class="text-3xl text-gray-900 dark:text-white">
+      <h1>New contact</h1>
+    </div>
   <br>
-  <div>
-    <% invalid = contact.errors.include?(:name) %>
-    <%= form.label :name, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.text_field :name, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    <% if invalid %>
-    <p style="color:red">
-      <%= contact.errors.full_messages_for(:name).join(" ,") %>
-    </p>
-    <% end %>
-  </div>
+    <div>
+      <% invalid = contact.errors.include?(:name) %>
+      <%= form.label :name, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :name, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <% if invalid %>
+      <p style="color:red">
+        <%= contact.errors.full_messages_for(:name).join(" ,") %>
+      </p>
+      <% end %>
+    </div>
    
-  <div>
-    <% invalid = contact.errors.include?(:phone) %>
-    <%= form.label :phone, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.text_field :phone, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    <% if invalid %>
-    <p style="color:red">
-      <%= contact.errors.full_messages_for(:phone).join(" ,") %>
-    </p>
-    <% end %>
-  </div>
+  <br>
+    <div>
+      <% invalid = contact.errors.include?(:phone) %>
+      <%= form.label :phone, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :phone, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <% if invalid %>
+      <p style="color:red">
+        <%= contact.errors.full_messages_for(:phone).join(" ,") %>
+      </p>
+      <% end %>
+    </div>
 
   <br>
-     <div>
-    <% invalid = contact.errors.include?(:email) %>
-    <%= form.label :email, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.text_field :email, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    <% if invalid %>
-    <p style="color:red">
-      <%= contact.errors.full_messages_for(:email).join(" ,") %>
-    </p>
-    <% end %>
-  </div>
+    <div>
+      <% invalid = contact.errors.include?(:email) %>
+      <%= form.label :email, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :email, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <% if invalid %>
+      <p style="color:red">
+        <%= contact.errors.full_messages_for(:email).join(" ,") %>
+      </p>
+      <% end %>
+    </div>
 
   <br>
    <div>

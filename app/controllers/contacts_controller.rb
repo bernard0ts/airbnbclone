@@ -8,13 +8,12 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
-
+ 
   def create
     @contact = Contact.new(contact_params)
-    admin_email = @admin.email
     if @contact.save!
-      ContactMailer.example(@contact, admin_email).deliver
-      redirect_to contacts_path, notice: 'Contato criado com sucesso.'
+      ContactMailer.example(@contact, @apartment).deliver
+      redirect_to apartments_path, notice: 'Contato criado com sucesso.'
     else
       render :new
     end

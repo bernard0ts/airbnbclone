@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   devise_for :admins
 
-  resources :apartments, only: %i[index show], controller: 'apartments'
-
-  resources :contacts
+  resources :apartments, only: %i[index show], controller: 'apartments' do
+    resources :contacts
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

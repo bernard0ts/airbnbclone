@@ -1,6 +1,7 @@
 class ContactMailer < ApplicationMailer
-  def example(contact, admin_email)
+  def example(contact, apartment)
     @contact = contact
-    mail(to: admin_email, subject: 'Test Email for Letter Opener')
+    @apartment = apartment
+    mail(to: @apartment.admin.email, subject: 'Test Email for Letter Opener')
   end
 end
