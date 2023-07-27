@@ -1,0 +1,92 @@
+<div class="text-center">
+  <div class="text-3xl text-gray-900 dark:text-white">
+    <h1>New apartment</h1>
+  </div>
+  <br>
+  <div>
+    <% invalid = apartment.errors.include?(:title) %>
+    <%= form.label :title, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :title, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:title).join(" ,") %>
+    </p>
+    <% end %>
+  </div>
+   
+   <div>
+    <%= form.text_field :admin_id, type: "hidden", value: current_admin.id %>
+  </div>
+
+  <div>
+    <% invalid = apartment.errors.include?(:description) %>
+    <%= form.label :description, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :description, class: "shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:description).join(" ,") %>
+    </p>
+    <% end %>
+  </div>
+
+  <br>
+  <% invalid = apartment.errors.include?(:cover) %>
+  <%= form.label :cover, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= form.file_field :cover, class: "text-sm text-gray-500
+    file:mr-4 file:py-2 file:px-4
+    file:rounded-md file:border-0
+    file:text-sm file:font-semibold
+    file:bg-blue-500 file:text-white
+    hover:file:bg-blue-600"%>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:cover).join(" ,") %>
+    </p>
+    <% end %>
+    <br>
+
+  <br>
+  <% invalid = apartment.errors.include?(:images) %>
+  <%= form.label :images, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= form.file_field :images, multiple:true, class: "text-sm text-gray-500
+    file:mr-4 file:py-2 file:px-4
+    file:rounded-md file:border-0
+    file:text-sm file:font-semibold
+    file:bg-blue-500 file:text-white
+    hover:file:bg-blue-600"%>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:images).join(" ,") %>
+    </p>
+    <% end %>
+  <br>
+  <br>
+
+  <div>
+    <% invalid = apartment.errors.include?(:active_date) %>
+    <%= form.label :active_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.datetime_field :active_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:active_date).join(" ,") %>
+    </p>
+    <% end %>
+  </div>
+
+  <div>
+    <% invalid = apartment.errors.include?(:inactive_date) %>
+    <%= form.label :inactive_date, style: "display: block", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.datetime_field :inactive_date, class: "g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-10 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <% if invalid %>
+    <p style="color:red">
+      <%= apartment.errors.full_messages_for(:inactive_date).join(" ,") %>
+    </p>
+    <% end %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit class: "text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-800" %>
+  </div>
+</div>

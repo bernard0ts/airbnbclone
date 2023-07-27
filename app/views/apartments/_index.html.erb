@@ -1,0 +1,8 @@
+<div class="apartment-container <%= @centered ? 'centered' : '' %>">
+  <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 250px; height: 300px; border-radius: 10px;") if apartment.cover.attached? %>
+    <p class="title-text"><strong><%= apartment.title %></strong></p>
+    <p class="otherfields-text"><%= apartment.description %></p>
+    <p class="otherfields-text"><%= apartment.active_date %></p>
+    <p class="otherfields-text"><%= apartment.inactive_date %></p>
+    <p><%= link_to "", apartment, class: "apartment-link" %></p>
+</div>

@@ -1,29 +1,36 @@
-.apartment-container{
-    margin-top: 4px;
+.apartment-container {
+    margin-top: 15px;
     position: relative;
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
-.title-text{
+.title-text {
     font-family: "Arial", sans-serif;
 }
 
-.otherfields-text{
+.otherfields-text {
     font-family: "Verdana", sans-serif;
     opacity: 0.7;
 }
 
-.apartment-link{
+.apartment-link {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index:4;
+    z-index: 4;
     opacity: 0;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.apartment-link:hover{
+.apartment-link:hover {
     opacity: 0.1;
+}
+
+.apartment-container.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

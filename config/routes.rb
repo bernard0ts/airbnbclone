@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope :module => "admin" do
+  namespace :admins do
     resources :apartments, controller: '/admins/apartments'
   end
 
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   devise_for :admins
 
   resources :apartments, only: %i[index show], controller: 'apartments'
+
+  resources :contacts
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

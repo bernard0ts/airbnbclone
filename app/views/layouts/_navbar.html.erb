@@ -1,40 +1,40 @@
 <!-- Main navigation container -->
 <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4" data-te-navbar-ref>
   <div class="flex w-full flex-wrap items-center justify-between px-3">
-    <!-- Collapsible navigation container -->
-    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent12" data-te-collapse-item>
-   
-      <!-- Left navigation links -->
+    <!-- Left navigation links -->
+    <div class="flex items-center">
       <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
-      <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-          <!-- Dashboard link -->
-          <%= link_to "Home", root_path %>
-        </li>
-        </div>
-        <% if admin_signed_in? %>
         <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-          <%= link_to "Sign out", destroy_admin_session_path %>
-        </li>
-        </div>
-        <% else %>
-        <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-          <%= link_to "Sign up", new_admin_session_path %>
-        </li>
-        </div>
-        <% end %>
-        <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-          <%= link_to "Register your apartments", new_apartment_path %>
-        </li>
+          <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+            <!-- Dashboard link -->
+            <%= link_to "Home", root_path %>
+          </li>
         </div>
         <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400">
         <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <%= link_to "Apartments", apartments_path %>
         </li>
         </div>
+      </ul>
+
+      </ul>
+    </div>
+
+    <!-- Right-aligned navigation item -->
+    <div class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400 lg:ml-auto">
+      <ul class="list-style-none flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+        <li class="mb-2 lg:mb-0 lg:pr-6" data-te-nav-item-ref>
+          <%= link_to "List your space on airbnb", new_admins_apartment_path %>
+        </li>
+        <% if admin_signed_in? %>
+          <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+            <%= link_to "Sign out", destroy_admin_session_path %>
+          </li>
+        <% else %>
+          <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+            <%= link_to "Sign up", new_admin_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -1,12 +1,24 @@
+<% @centered = true %>
+<%= stylesheet_link_tag "apartment" %>
+
 <div style="text-align: center;">
   <p style="color: green;"><%= notice %></p>
 
-  <%= render @apartment %>
+  <% @show_view = true %>
+  <%= render 'apartment', apartment: @apartment %>
+  <% @show_view = false %>
 
-  <div>
-    <%= link_to "Edit this apartment", edit_apartment_path(@apartment) %> |
-    <%= link_to "Back to apartments", apartments_path %>
+  <br>
+  <br>
+  <br>
 
-    <%= button_to "Destroy this apartment", @apartment, method: :delete %>
-  </div>
+  <% if admin_signed_in? %>
+    <div>
+      <%= link_to "Edit this apartment", edit_admins_apartment_path(@apartment), class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+      <%= link_to "Back to apartments", apartments_path, class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+      <br>
+      <br>
+      <%= button_to "Destroy this apartment", admins_apartment_path, method: :delete, class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-red-800" %>
+    </div>
+  <% end %>
 </div>

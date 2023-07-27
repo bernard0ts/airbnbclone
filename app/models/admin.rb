@@ -3,4 +3,16 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :apartments
+
+  before_create :randomize_id
+
+  private
+
+  def randomize_id
+    begin
+      self.id = SecureRandom.random_number(1_000_000_000)
+    end while Admin.where(id: self.id).exists?
+  end
 end
