@@ -8,12 +8,12 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
- 
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.save!
       ContactMailer.example(@contact, @apartment).deliver
-      redirect_to apartments_path, notice: 'Contato criado com sucesso.'
+      redirect_to apartments_path, notice: 'Contact created successfully.'
     else
       render :new
     end

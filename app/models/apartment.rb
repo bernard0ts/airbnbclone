@@ -1,5 +1,6 @@
 class Apartment < ApplicationRecord
-  validates :title, :description, :images, :active_date, :inactive_date, presence: true
+  validates :title, :description, :cover, :active_date, :inactive_date, presence: true
+  validates :images, presence: true, length: { minimum: 4, maximum: 4 }
   has_one_attached :cover
   has_many_attached :images
 

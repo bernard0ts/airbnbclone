@@ -34,3 +34,7 @@
     align-items: center;
     text-align: center;
 }
+
+.nav-link:hover {
+    color: #ff385c;
+  }
