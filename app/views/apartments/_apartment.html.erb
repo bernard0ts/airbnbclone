@@ -1,21 +1,25 @@
-  <div class="apartment-container <%= @centered ? 'centered' : '' %>">
-  <div style="display: flex; align-items: center;">
-  <p class="title-text" style="margin-right: 16px;"><strong><%= apartment.title %></strong></p>
-  <p class="title-text"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
-  <%= link_to "Contact", new_apartment_contact_path(@apartment), class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-3.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
-</div>
-  
-<div style="display: flex; justify-content: center; align-items: flex-start;">
-  <div style="flex: 1; margin-right: 5px;">
-    <% if apartment.cover.attached? %>
-      <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 800px; height: 420px; border-radius: 10px;") %>
-    <% end %>
+<div class="apartment-container <%= @centered ? 'centered' : '' %>">
+  <div class="w-full">
+    <div class="bg-white shadow-lg rounded px-16 pt-6 pb-8 mb-4 flex flex-col items-center">
+        <p class="title-text" style="margin-right: 16px;"><strong><%= apartment.title %></strong></p>
+        <p class="title-text"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
+        <%= link_to "Contact", new_apartment_contact_path(@apartment), class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-3.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+      <div style="display: flex; justify-content: center; align-items: flex-start;">
+        <div style="flex: 1; margin-right: 5px;">
+          <% if apartment.cover.attached? %>
+            <%= image_tag(url_for(apartment.cover), style: "object-fit: cover; width: 800px; height: 420px; border-radius: 10px;") %>
+          <% end %>
+        </div>
+        <br>
+        <div class="grid grid-rows-2 grid-cols-2 grid-flow-col" style="flex-direction: column; justify-center; justify-content: flex-start;">
+          <% apartment.images.each do |image| %>
+            <%= image_tag(image, style: "object-fit: cover; width: 400px; height: 210px; border-radius: 10px; margin-bottom: 5px;") %>
+          <% end %>
+        </div>
+      </div>
+      <p class="title-text">Description: <strong><%= apartment.description %></strong></p>
+    </div>
   </div>
-  <br>
-  <div class= "grid grid-rows-2 grid-cols-2 grid-flow-col" style="flex-direction: column; justify-center; justify-content: flex-start;">
-    <% apartment.images.each do |image| %>
-      <%= image_tag(image, style: "object-fit: cover; width: 400px; height: 210px; border-radius: 10px; margin-bottom: 5px;") %>
-    <% end %>
-  </div>
 </div>
-<p class="otherfields-text" style= "margin-right: 1700px;">Description: <strong><%= apartment.description %></strong></p>
+
+
