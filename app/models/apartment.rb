@@ -8,6 +8,14 @@ class Apartment < ApplicationRecord
 
   before_create :randomize_id
 
+  def formatted_active_date
+    active_date.strftime('%d/%m/%Y') if active_date
+  end
+
+  def formatted_inactive_date
+    inactive_date.strftime('%d/%m/%Y') if inactive_date
+  end
+
   private
 
   def randomize_id

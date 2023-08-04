@@ -30,6 +30,10 @@ gem "jbuilder"
 
 gem 'simple_form'
 
+gem 'pagy', '~> 6.0'
+
+gem 'ransack'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

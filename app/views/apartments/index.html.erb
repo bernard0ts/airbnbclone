@@ -1,7 +1,26 @@
 <%= stylesheet_link_tag("apartment") %>
 <p class="text-green-500"><%= notice %></p>
 <div id="apartments" class="grid grid-cols-6 gap-6 justify-items-center">
+  
+  <%= search_form_for @q do |f| %>
+  <%= f.label :title_or_description_cont %>
+  <%= f.search_field :title_or_description_cont %>
+
+  <%= f.label :active_date_eq %>
+  <%= f.text_field :active_date_eq, class: 'datepicker' %>
+
+  <%= f.label :inactive_date_eq %>
+  <%= f.text_field :inactive_date_eq, class: 'datepicker' %>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+
   <% @apartments.each do |apartment| %>
     <%= render "index", apartment: apartment %>
   <% end %>
+</div>
+<div class="mb-4"></div>
+<div class="d-flex justify-content-center">
+  <%== pagy_bootstrap_nav(@pagy) %>
 </div>

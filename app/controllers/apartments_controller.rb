@@ -3,7 +3,8 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @apartments = Apartment.all
+    @q = Apartment.ransack(params[:q])
+    @pagy, @apartments = pagy(@q.result)
   end
 
   # GET /apartments/1 or /apartments/1.json
