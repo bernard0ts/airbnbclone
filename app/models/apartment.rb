@@ -4,6 +4,8 @@ class Apartment < ApplicationRecord
   has_one_attached :cover
   has_many_attached :images
 
+  default_scope { order(created_at: :desc) }
+
   belongs_to :admin
 
   before_create :randomize_id

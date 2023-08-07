@@ -4,10 +4,9 @@ class Admins::ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @pagy, @apartments = pagy(Apartment.order(created_at: :desc))
+    @pagy, @apartments = pagy(Apartment.order)
   end
 
-  # GET /apartments/1 or /apartments/1.json
   def show
     @apartment = Apartment.find(params[:id])
   end
