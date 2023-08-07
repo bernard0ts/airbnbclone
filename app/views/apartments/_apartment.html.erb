@@ -3,7 +3,7 @@
   <div class="w-full">
     <div class="bg-white shadow-lg rounded px-16 pt-6 pb-8 mb-4 flex flex-col items-center">
       <p class="title-text"><strong><%= apartment.title %></strong></p>
-      <p class="title-text"><strong>Hospedado por: <%= apartment.admin.name %></strong></p>
+      <p class="title-text"><strong>Hosted by: <%= apartment.admin.name %></strong></p>
       
       <div class="flex flex-row-reverse justify-between mr-48 w-full" style="margin-bottom: 40px;">
         <%= link_to "Contact", new_apartment_contact_path(@apartment), class: "btn btn-outline-primary", style: "padding: 12px 12px; border-radius: 5px; margin-top: -50px;" %>

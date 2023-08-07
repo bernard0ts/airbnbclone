@@ -1,9 +1,8 @@
 <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-3" data-te-navbar-ref>
   <div class="flex w-full flex-wrap items-center justify-between px-3">
-    <!-- Left navigation links -->
     <div class="flex items-center">
       <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
-        <li class="nav-item" style="margin-left: 20px;"> <!-- Add margin-left here -->
+        <li class="nav-item" style="margin-left: 20px;">
           <!-- Airbnb Logo -->
           <%= link_to root_path, class: "nav-link", style: "background-color: transparent; padding: 8px 16px; border: 1px solid transparent; border-radius: 20px; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;" do %>
             <img src="/assets/Airbnb-logo.png" alt="Airbnb Logo" style="width: 100px; height: 60px;">
@@ -12,7 +11,22 @@
       </ul>
     </div>
 
-    <!-- Right-aligned navigation item -->
+    <% if @q.present? %>
+    <div class="nav-item">
+      <%= search_form_for @q, html: { class: "flex items-center" } do |f| %>
+        <div class="flex items-center">
+          <%= f.search_field :title_or_description_cont,  class:'placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md py-2 pl-3 pr-9 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm', placeholder:'Search by title or description' %>
+
+          <%= f.date_field :active_date_eq, class: 'form-control' %>
+
+          <%= f.date_field :inactive_date_eq, class: 'form-control' %>
+
+          <%= f.submit "Search", class: "btn btn-outline-danger ml-4" %>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+
     <div class="nav-item">
       <ul class="list-style-none flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
         <li class="nav-item">
